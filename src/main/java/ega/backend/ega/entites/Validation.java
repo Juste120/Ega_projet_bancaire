@@ -1,25 +1,29 @@
 package ega.backend.ega.entites;
 
-import ega.backend.ega.Enum.TypeDeRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-
+import java.time.Instant;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "role")
-public class Role {
+@Table(name = "validation")
+public class Validation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Enumerated(EnumType.STRING)
-    private TypeDeRole libelle;
+    private Instant creation;
+    private Instant expiration;
+    private Instant activation;
+    private String code;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Utilisateur utilisateur;
+
+
 }
