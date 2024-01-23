@@ -6,6 +6,11 @@ import ega.backend.ega.entites.Utilisateur;
 import ega.backend.ega.entites.Validation;
 import ega.backend.ega.repository.UtilisateurRepository;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +20,12 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Service
-public class UtilisateurService {
+public class UtilisateurService implements UserDetailsService {
     private UtilisateurRepository utilisateurRepository;
     private BCryptPasswordEncoder passwordEncoder;
     private ValidationService validationService;
+
+
 
     public void inscription(Utilisateur utilisateur){
         if (utilisateur.getEmail().indexOf('@') == -1){
@@ -48,6 +55,13 @@ public class UtilisateurService {
         Utilisateur utilisateurActiver = this.utilisateurRepository.findById(validation.getUtilisateur().getId()).orElseThrow(() -> new RuntimeException("utilisateur inconnu"));
         utilisateurActiver.setActif(true);
         this.utilisateurRepository.save(utilisateurActiver);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return this.utilisateurRepository
+                .findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("Aucun utilisateur ne corresponds à cette identifiant"));
+
     }
 }
 
