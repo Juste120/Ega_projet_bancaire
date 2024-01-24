@@ -21,16 +21,17 @@ export class LoginComponent implements OnInit {
 
  onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value).subscribe(
-        res => {
+      this.authService.login(this.loginForm.value).subscribe({
+       next: (res) => {
           console.log(res);
           // Handle successful login here
-        },
-        err => {
+          alert('Connexion reussie');
+       },
+       error: (err) => {
           console.error(err);
-          // Handle error here
-        }
-      );
+          alert('Une erreur s\'est produite lors de la connexion. Veuillez réessayer.');
+       }
+      });
     }
  }
 }
