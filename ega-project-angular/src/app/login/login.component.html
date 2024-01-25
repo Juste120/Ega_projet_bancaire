@@ -21,16 +21,33 @@
            <span class="font-bold text-md">Forgot password</span>
          </div>
          <button class="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300" (click)="onSubmit()">Sign in</button>
-         <div class="text-center text-gray-400">Don't have an account? <span class="font-bold text-black">Sign up for free</span></div>
+         <div class="text-center text-gray-400">Don't have an account?  <a routerLink="/register" class="font-bold text-black">Connectez-vous</a></div>
        </form>
      </div>
      <!-- right side -->
      <div class="relative">
-       <img src="/assets/images/ega.jpg" alt="ega img" class="w-[400px] h-full hidden rounded-l-2xl md:block object-cover">
-       <!-- text on image -->
+      <img src="/assets/images/ega.jpg" alt="ega img" class="w-[400px] h-full hidden rounded-tr-2xl rounded-br-2xl md:block object-cover">       <!-- text on image -->
        <div class="absolute hidden bottom-10 right-6 p-6 bg-white bg-opacity-30 backdrop-blur-sm rounded drop-shadow-lg md:block">
          <span class="text-white text-xl">With ega-banking "<br/>let go with me, powerful project <br/>imagine working without it.</span>
        </div>
      </div>
   </div>
  </div>
+ <div class="flex items-center justify-center min-h-screen bg-gray-100">
+ <div class="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+    <!-- left side -->
+    <div class="flex flex-col justify-center p-8 md:p-14">
+      <span class="mb-3 text-4xl font-bold">Welcome back</span>
+      <span class="font-light text-gray-400 mb-8">Welcome To ega-banking project</span>
+      <!-- Rest of the form goes here -->
+    </div>
+    <!-- right side -->
+    <div class="relative">
+      <img src="/assets/images/ega.jpg" alt="ega img" class="w-[400px] h-full hidden rounded-tr-2xl rounded-br-2xl md:block object-cover">
+      <!-- text on image -->
+      <div class="absolute hidden bottom-10 right-6 p-6 bg-white bg-opacity-30 backdrop-blur-sm rounded drop-shadow-lg md:block">
+        <span class="text-white text-xl">With ega-banking "<br/>let go with me, powerful project <br/>imagine working without it.</span>
+      </div>
+    </div>
+ </div>
+</div>

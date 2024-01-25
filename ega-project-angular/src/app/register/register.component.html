@@ -1,1 +1,30 @@
-<p>register works!</p>
+<!-- Conteneur de la page avec image en arrière-plan -->
+<div class="min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/images/ega.jpg');">
+    <!-- Conteneur du formulaire avec transparence -->
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="relative flex flex-col m-6 space-y-8 bg-white bg-opacity-75 shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+        <!-- left side -->
+        <div class="flex flex-col justify-center p-8 md:p-14">
+          <span class="mb-3 text-4xl font-bold">Inscription</span>
+          <span class="font-light text-gray-400 mb-8">Bienvenue sur le projet ega-banking</span>
+          <form [formGroup]="registerForm">
+            <div class="py-4">
+              <span class="mb-2 text-md">Nom</span>
+              <input type="text" formControlName="lastName" class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"/>
+            </div>
+            <div class="py-4">
+              <span class="mb-2 text-md">Email</span>
+              <input type="text" formControlName="email" class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"/>
+            </div>
+            <div class="py-4">
+              <span class="mb-2 text-md">Mot de passe</span>
+              <input type="password" formControlName="password" class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"/>
+            </div>
+            <button class="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300" (click)="onSubmit()">S'inscrire</button>
+            <div class="text-center text-gray-400">Vous avez déjà un compte? <a routerLink="/login" class="font-bold text-black">Connectez-vous</a></div>
+          </form>
+        </div>
+        <!-- right side (removed because the background image is now full page) -->
+      </div>
+    </div>
+  </div>
