@@ -30,7 +30,7 @@ public class UtilisateurControleur {
     public void inscription(@RequestBody Utilisateur utilisateur)
     {
         log.info("inscription");
-        this.utilisateurService.inscription(utilisateur);
+        this.utilisateurService.inscriptionA(utilisateur);
     }
     @PostMapping(path = "activation")
     public void activation(@RequestBody Map<String,String> activation)

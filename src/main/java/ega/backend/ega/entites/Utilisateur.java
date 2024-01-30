@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Entity
 @Getter
@@ -29,6 +30,8 @@ public class Utilisateur implements UserDetails {
     private boolean actif=false;
     @OneToOne(cascade = CascadeType.ALL)
     private  Role role;
+    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.PERSIST)
+    private List<Compte> comptes;
 
 
     @Override

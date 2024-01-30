@@ -27,7 +27,7 @@ public class UtilisateurService implements UserDetailsService {
 
 
 
-    public void inscription(Utilisateur utilisateur){
+    public void inscriptionA(Utilisateur utilisateur){
         if (utilisateur.getEmail().indexOf('@') == -1){
             throw new RuntimeException("Votre mail est incorrect");
         }
@@ -40,9 +40,9 @@ public class UtilisateurService implements UserDetailsService {
         }
         String passwordCrypté = this.passwordEncoder.encode(utilisateur.getPassword());
         utilisateur.setPassword(passwordCrypté);
-        Role roleUtilisateur = new Role();
-        roleUtilisateur.setLibelle(TypeDeRole.UTILISATEUR);
-        utilisateur.setRole(roleUtilisateur);
+        Role roleAdministrateur = new Role();
+        roleAdministrateur.setLibelle(TypeDeRole.ADMINISTRATEUR);
+        utilisateur.setRole(roleAdministrateur);
         utilisateur = this.utilisateurRepository.save(utilisateur);
         this.validationService.enregistrer(utilisateur);
     }

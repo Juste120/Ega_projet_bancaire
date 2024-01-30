@@ -1,5 +1,6 @@
 package ega.backend.ega.services;
 
+import ega.backend.ega.entites.Compte;
 import ega.backend.ega.entites.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -28,10 +29,22 @@ public class NotificationService {
 
         javaMailSender.send(message);
 
+    }
+    public void envoyerNumeroCompte(Compte compte) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("no-reply@ega.com");
+        message.setTo(compte.getUtilisateur().getEmail());
+        message.setSubject("Votre numéro de compte");
 
+        String texte = String.format(
+                "Bonjour %s, votre numéro de compte est %s. A bientôt.",
+                compte.getUtilisateur().getNom(),
+                compte.getNumeroCompte()
+        );
 
+        message.setText(texte);
 
-
+        javaMailSender.send(message);
     }
 
 }
