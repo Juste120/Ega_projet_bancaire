@@ -8,12 +8,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { MenuUserComponent } from './menu-user/menu-user.component';
 
+import { TransactionComponent } from './transaction/transaction.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    MenuUserComponent
+    MenuUserComponent,
+
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

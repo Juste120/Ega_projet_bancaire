@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
    providedIn: 'root'
 })
 export class AuthService {
-   private apiUrl = 'https://your-api-url.com'; // Replace with your API URL
+   private apiUrl = 'http://localhost:8080/api/'; 
 
    constructor(private http: HttpClient, private router: Router) { }
 
    login(credentials: { email: string, password: string }): Observable<any> {
-      return this.http.post(`${this.apiUrl} /login`, credentials).pipe(
+      return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
          tap((response: any) => {
             if (response && response.token) {
                localStorage.setItem('token', response.token);
