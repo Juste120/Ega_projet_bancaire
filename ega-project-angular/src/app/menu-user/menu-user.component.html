@@ -1,0 +1,34 @@
+<!-- menu-user.component.html -->
+<button (click)="isOpen = !isOpen" class="px-4 py-2 mt-5 ml-5 bg-green-500 text-white rounded">
+    Menu
+</button>
+
+<div [ngClass]="{'w-64': isOpen, 'w-0': !isOpen}"
+    class="h-screen fixed bg-white text-gray-800 shadow-3xl transition-width duration-200 ease-in-out overflow-hidden">
+    <div class="flex items-center justify-start mx-6 mt-10">
+        <span class="text-3xl font-semibold">Ega-banking</span>
+    </div>
+    <nav class="mt-10 px-6 ">
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-green-500 hover:text-white"
+            routerLink="/send">
+            <i class="fas fa-paper-plane mr-2"></i> Send
+        </a>
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-green-500 hover:text-white"
+            routerLink="/transaction">
+            <i class="fas fa-exchange-alt mr-2"></i> Transaction
+        </a>
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-green-500 hover:text-white"
+            routerLink="/solde">
+            <i class="fas fa-wallet mr-2"></i> Solde
+        </a>
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-green-500 hover:text-white"
+            routerLink="/parametre">
+            <i class="fas fa-cog mr-2"></i> Paramètre
+        </a>
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-green-500 hover:text-white"
+            routerLink="/dashboard">
+            <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+        </a>
+    </nav>
+</div>
+<router-outlet></router-outlet>
